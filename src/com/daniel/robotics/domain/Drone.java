@@ -2,7 +2,7 @@ package com.daniel.robotics.domain;
 
 import com.daniel.robotics.enums.RobotType;
 
-public class Drone extends Robot implements Flyable {
+public class Drone extends Robot implements Flyable, Combat {
     public Drone(String name, RobotType robotType) {
         super(name, robotType);
     }
@@ -10,5 +10,9 @@ public class Drone extends Robot implements Flyable {
     @Override
     public void fly() {
         System.out.println(getName() + " is flying");
+    }
+
+    @Override
+    public void attack() {
     }
 }
