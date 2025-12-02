@@ -2,7 +2,7 @@ package com.daniel.robotics.enums;
 
 public enum RobotType {
     DRONE(100, 20, 5, 0),
-    MECH(200, 10, 0, 0),
+    COMBAT(200, 20, 0, 0),
     ANDROID(70, 0, 0, 5);
 
     private int maxBattery;
