@@ -9,6 +9,8 @@ public class Mech extends Robot implements Combat {
 
     @Override
     public void attack() {
-        System.out.println(getName() + " is attacking.");
+        consumeEnergy(getRobotType().getAttackCost());
+        System.out.println(getName() + " attack consumed " + getRobotType().getAttackCost());
+        System.out.println(getName() + "'s " + getBattery().toString());
     }
 }
