@@ -8,11 +8,16 @@ public class Drone extends Robot implements Flyable, Combat {
     }
 
     @Override
-    public void fly() {
-        System.out.println(getName() + " is flying");
+    public void attack() {
+        consumeEnergy(getRobotType().getAttackCost());
+        System.out.println(getName() + " attack consumed " + getRobotType().getAttackCost());
+        System.out.println(getName() + "'s " + getBattery().toString());
     }
 
     @Override
-    public void attack() {
+    public void fly() {
+        consumeEnergy(getRobotType().getFlyCost());
+        System.out.println(getName() + " fly consumed " + getRobotType().getFlyCost());
+        System.out.println(getName() + "'s " + getBattery().toString());
     }
 }
