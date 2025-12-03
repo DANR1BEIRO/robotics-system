@@ -3,6 +3,7 @@ package com.daniel.robotics.service;
 import com.daniel.robotics.domain.Combat;
 
 import com.daniel.robotics.domain.Robot;
+import com.daniel.robotics.domain.Workable;
 import com.daniel.robotics.exceptions.LowBatteryException;
 import com.daniel.robotics.exceptions.SystemOverloadException;
 
@@ -25,5 +26,17 @@ public final class RobotService {
         }
         System.out.println(robot.getBattery());
         System.out.println();
+    }
+
+    public static <T extends Robot & Workable> void performWork(T robot) {
+        try {
+            robot.work();
+        } catch (SystemOverloadException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(robot.getBattery());
+        System.out.println();
+
+
     }
 }
