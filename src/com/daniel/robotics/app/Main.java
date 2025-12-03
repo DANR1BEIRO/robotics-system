@@ -20,11 +20,10 @@ public class Main {
         RobotService.performRecharge(megaman, 5);
 
         RobotService.performAttack(eva);
+        RobotService.performFly(eva);
         RobotService.performRecharge(eva, 10);
 
         RobotService.performWork(ns5);
         RobotService.performRecharge(ns5, 2);
-
-
     }
 }
