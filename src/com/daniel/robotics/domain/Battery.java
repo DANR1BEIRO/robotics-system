@@ -2,6 +2,7 @@ package com.daniel.robotics.domain;
 
 import com.daniel.robotics.enums.RobotType;
 import com.daniel.robotics.exceptions.LowBatteryException;
+import com.daniel.robotics.exceptions.SystemOverloadException;
 
 public class Battery {
     private int currentEnergy;
@@ -18,6 +19,17 @@ public class Battery {
             throw new LowBatteryException(currentEnergy, amount);
         }
         currentEnergy -= amount;
+    }
+
+    public void recharge(int amount, String name) {
+        if (currentEnergy == maxCharge) {
+            throw new SystemOverloadException("ALERTA DE SOBRECARGA: ", name);
+        }
+        if (currentEnergy + amount < maxCharge) {
+            currentEnergy += amount;
+        } else {
+            currentEnergy = maxCharge;
+        }
     }
 
     @Override
