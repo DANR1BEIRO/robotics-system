@@ -8,7 +8,14 @@ public class Main {
     public static void main(String[] args) {
         Mech megaman = new Mech("Megaman", RobotType.COMBAT);
 
+        RobotService.performRecharge(megaman, 200);
+
         RobotService.performAttack(megaman);
         RobotService.performAttack(megaman);
+
+        RobotService.performRecharge(megaman, 10);
+        RobotService.performRecharge(megaman, 40);
+
+
     }
 }
