@@ -18,6 +18,12 @@ public abstract class Robot {
         battery.consume(amount);
     }
 
+
+    public void rechargeBattery(int amount, String name) {
+        battery.recharge(amount, name);
+        System.out.println(name +"'s battery was recharged by: " + amount);
+    }
+
     @Override
     public String toString() {
         return "Robot{" +
