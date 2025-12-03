@@ -9,6 +9,10 @@ public class Android extends Robot implements Workable {
 
     @Override
     public void work() {
-        System.out.println(getName() + " is working.");
+        int cost = getRobotType().getWorkCost();
+        consumeEnergy(cost);
+
+        System.out.println(getName() + " work consume " + cost);
+        System.out.println(getName() + "'s " + getBattery());
     }
 }
