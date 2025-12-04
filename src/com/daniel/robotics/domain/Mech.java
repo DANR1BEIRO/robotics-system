@@ -1,6 +1,7 @@
 package com.daniel.robotics.domain;
 
 import com.daniel.robotics.enums.RobotType;
+import com.daniel.robotics.exceptions.RobotOfflineException;
 
 public class Mech extends Robot implements Combat {
     public Mech(String name, RobotType robotType) {
@@ -9,8 +10,11 @@ public class Mech extends Robot implements Combat {
 
     @Override
     public void attack() {
+        if (!isOnline()) {
+            throw new RobotOfflineException(getName());
+        }
         consumeEnergy(getRobotType().getAttackCost());
-        System.out.println(getName() + " attack consumed " + getRobotType().getAttackCost());
-        System.out.println(getName() + "'s " + getBattery().toString());
+        System.out.println("[" + getName() + "]" + " ataque consumiu " + getRobotType().getAttackCost());
+        System.out.println("[" + getName() + "] " + getBattery());
     }
 }

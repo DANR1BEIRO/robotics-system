@@ -1,6 +1,7 @@
 package com.daniel.robotics.domain;
 
 import com.daniel.robotics.enums.RobotType;
+import com.daniel.robotics.exceptions.RobotOfflineException;
 
 public class Android extends Robot implements Workable {
     public Android(String name, RobotType robotType) {
@@ -9,10 +10,12 @@ public class Android extends Robot implements Workable {
 
     @Override
     public void work() {
+        if (!isOnline()) {
+            throw new RobotOfflineException(getName());
+        }
         int cost = getRobotType().getWorkCost();
         consumeEnergy(cost);
-
-        System.out.println(getName() + " work consume " + cost);
-        System.out.println(getName() + "'s " + getBattery());
+        System.out.println("[" + getName() + "]" + " trabalho consumiu " + getRobotType().getWorkCost());
+        System.out.println("[" + getName() + "] " + getBattery());
     }
 }
