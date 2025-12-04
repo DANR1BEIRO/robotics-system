@@ -2,7 +2,7 @@ package com.daniel.robotics.exceptions;
 
 public class SystemOverloadException extends RoboticException {
 
-    public SystemOverloadException(String message, String name) {
-        super(message + "A bateria de " + name + " já está totalmente carregada!");
+    public SystemOverloadException(String robotName) {
+        super("[" + robotName + "] operação inválida: carga da bateria está no limite máximo.");
     }
 }
