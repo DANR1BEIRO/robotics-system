@@ -6,22 +6,40 @@ public abstract class Robot {
     private String name;
     private RobotType robotType;
     private Battery battery;
+    private boolean isOnline;
 
     public Robot(String name, RobotType robotType) {
         this.name = name;
         this.robotType = robotType;
         this.battery = new Battery(robotType);
-
+        this.isOnline = false;
     }
 
     protected void consumeEnergy(int amount) {
-        battery.consume(amount);
+        battery.consume(getName(), amount);
     }
 
 
-    public void rechargeBattery(int amount, String name) {
-        battery.recharge(amount, name);
-        System.out.println(name +"'s battery was recharged by: " + amount);
+    public void rechargeBattery(int amount) {
+        battery.recharge(getName(), amount);
+        System.out.println("[" + name + "] bateria carregada: " + amount);
+        System.out.println("[" + getName() + "] " + getBattery());
+    }
+
+    public void turnOn() {
+        if (this.isOnline) {
+            return;
+        }
+        this.isOnline = true;
+        System.out.println("[" + name + "] ligado e pronto.");
+    }
+
+    public void turnOff() {
+        if (!this.isOnline) {
+            return;
+        }
+        this.isOnline = false;
+        System.out.println("[" + name + "] deligado.");
     }
 
     @Override
@@ -43,5 +61,9 @@ public abstract class Robot {
 
     public Battery getBattery() {
         return battery;
+    }
+
+    public boolean isOnline() {
+        return isOnline;
     }
 }
