@@ -1,10 +1,13 @@
 package com.daniel.robotics.app;
 
-import com.daniel.robotics.domain.Android;
-import com.daniel.robotics.domain.Drone;
-import com.daniel.robotics.domain.Mech;
+import com.daniel.robotics.domain.*;
 import com.daniel.robotics.enums.RobotType;
 import com.daniel.robotics.service.RobotService;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,18 +15,25 @@ public class Main {
         Android ns5 = new Android("NS-5", RobotType.ANDROID);
         Drone eva = new Drone("EVA", RobotType.DRONE);
 
-        RobotService.performRecharge(megaman, 200);
-        RobotService.performRecharge(eva, 10);
-        RobotService.performRecharge(ns5, 2);
+        Set<Robot> robotList = new HashSet<>(List.of(megaman, ns5, eva));
 
-        RobotService.performAttack(megaman);
-        RobotService.performRecharge(megaman, 5);
+        for (Robot robot : robotList) {
+            RobotService.turnRobotOn(robot);
+            if (robot instanceof Android workable) {
+                RobotService.performWork(workable);
+            }
 
-        RobotService.performAttack(eva);
-        RobotService.performFly(eva);
-        RobotService.performRecharge(eva, 10);
+            if (robot instanceof Mech combat) {
+                RobotService.performAttack(combat);
+            }
 
-        RobotService.performWork(ns5);
-        RobotService.performRecharge(ns5, 2);
+            if (robot instanceof Drone drone) {
+                RobotService.performFly(drone);
+                RobotService.performAttack(drone);
+            }
+
+            RobotService.performRecharge(robot, 5);
+            System.out.println("--------------------------------");
+        }
     }
 }
