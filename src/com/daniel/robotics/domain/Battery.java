@@ -14,16 +14,17 @@ public class Battery {
         this.currentEnergy = maxCharge;
     }
 
-    public void consume(int amount) {
+    public void consume(String robotName, int amount) {
         if (amount > currentEnergy) {
-            throw new LowBatteryException(currentEnergy, amount);
+            throw new LowBatteryException(robotName, currentEnergy, amount);
         }
         currentEnergy -= amount;
     }
 
-    public void recharge(int amount, String name) {
+
+    public void recharge(String robotName, int amount) {
         if (currentEnergy == maxCharge) {
-            throw new SystemOverloadException("ALERTA DE SOBRECARGA: ", name);
+            throw new SystemOverloadException(robotName);
         }
         if (currentEnergy + amount < maxCharge) {
             currentEnergy += amount;
@@ -34,7 +35,7 @@ public class Battery {
 
     @Override
     public String toString() {
-        return "current energy: " + currentEnergy + "/" + maxCharge;
+        return "Energia atual: " + currentEnergy + "/" + maxCharge;
     }
 
     public int getCurrentEnergy() {
