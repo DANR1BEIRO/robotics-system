@@ -1,4 +1,4 @@
-package com.daniel.robotics.exceptions;
+package com.daniel.robotics.domain.exceptions;
 
 public class LowBatteryException extends RoboticException {
     public LowBatteryException(String robotName, int currentBattery, int cost) {

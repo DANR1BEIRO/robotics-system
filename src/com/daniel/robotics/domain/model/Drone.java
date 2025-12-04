@@ -1,7 +1,9 @@
-package com.daniel.robotics.domain;
+package com.daniel.robotics.domain.model;
 
+import com.daniel.robotics.domain.capability.Combat;
+import com.daniel.robotics.domain.capability.Flyable;
 import com.daniel.robotics.enums.RobotType;
-import com.daniel.robotics.exceptions.RobotOfflineException;
+import com.daniel.robotics.domain.exceptions.RobotOfflineException;
 
 public class Drone extends Robot implements Flyable, Combat {
     public Drone(String name, RobotType robotType) {

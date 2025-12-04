@@ -1,7 +1,8 @@
-package com.daniel.robotics.domain;
+package com.daniel.robotics.domain.model;
 
+import com.daniel.robotics.domain.capability.Workable;
 import com.daniel.robotics.enums.RobotType;
-import com.daniel.robotics.exceptions.RobotOfflineException;
+import com.daniel.robotics.domain.exceptions.RobotOfflineException;
 
 public class Android extends Robot implements Workable {
     public Android(String name, RobotType robotType) {

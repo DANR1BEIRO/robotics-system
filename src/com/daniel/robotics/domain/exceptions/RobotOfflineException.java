@@ -1,4 +1,4 @@
-package com.daniel.robotics.exceptions;
+package com.daniel.robotics.domain.exceptions;
 
 public class RobotOfflineException extends RoboticException {
     public RobotOfflineException(String robotName) {

@@ -1,7 +1,8 @@
-package com.daniel.robotics.domain;
+package com.daniel.robotics.domain.model;
 
+import com.daniel.robotics.domain.capability.Combat;
 import com.daniel.robotics.enums.RobotType;
-import com.daniel.robotics.exceptions.RobotOfflineException;
+import com.daniel.robotics.domain.exceptions.RobotOfflineException;
 
 public class Mech extends Robot implements Combat {
     public Mech(String name, RobotType robotType) {

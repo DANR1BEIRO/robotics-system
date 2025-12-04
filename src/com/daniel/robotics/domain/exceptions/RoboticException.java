@@ -1,4 +1,4 @@
-package com.daniel.robotics.exceptions;
+package com.daniel.robotics.domain.exceptions;
 
 public class RoboticException extends RuntimeException {
     public RoboticException(String message) {

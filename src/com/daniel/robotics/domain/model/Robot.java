@@ -1,4 +1,4 @@
-package com.daniel.robotics.domain;
+package com.daniel.robotics.domain.model;
 
 import com.daniel.robotics.enums.RobotType;
 

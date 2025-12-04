@@ -1,10 +1,12 @@
 package com.daniel.robotics.app;
 
-import com.daniel.robotics.domain.*;
+import com.daniel.robotics.domain.model.Android;
+import com.daniel.robotics.domain.model.Drone;
+import com.daniel.robotics.domain.model.Mech;
+import com.daniel.robotics.domain.model.Robot;
 import com.daniel.robotics.enums.RobotType;
 import com.daniel.robotics.service.RobotService;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

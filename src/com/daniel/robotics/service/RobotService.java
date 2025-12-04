@@ -1,13 +1,13 @@
 package com.daniel.robotics.service;
 
-import com.daniel.robotics.domain.Combat;
+import com.daniel.robotics.domain.capability.Combat;
 
-import com.daniel.robotics.domain.Flyable;
-import com.daniel.robotics.domain.Robot;
-import com.daniel.robotics.domain.Workable;
-import com.daniel.robotics.exceptions.LowBatteryException;
-import com.daniel.robotics.exceptions.RobotOfflineException;
-import com.daniel.robotics.exceptions.SystemOverloadException;
+import com.daniel.robotics.domain.capability.Flyable;
+import com.daniel.robotics.domain.model.Robot;
+import com.daniel.robotics.domain.capability.Workable;
+import com.daniel.robotics.domain.exceptions.LowBatteryException;
+import com.daniel.robotics.domain.exceptions.RobotOfflineException;
+import com.daniel.robotics.domain.exceptions.SystemOverloadException;
 
 public final class RobotService {
 

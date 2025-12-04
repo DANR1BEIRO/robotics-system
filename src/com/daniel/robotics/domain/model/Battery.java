@@ -1,8 +1,8 @@
-package com.daniel.robotics.domain;
+package com.daniel.robotics.domain.model;
 
 import com.daniel.robotics.enums.RobotType;
-import com.daniel.robotics.exceptions.LowBatteryException;
-import com.daniel.robotics.exceptions.SystemOverloadException;
+import com.daniel.robotics.domain.exceptions.LowBatteryException;
+import com.daniel.robotics.domain.exceptions.SystemOverloadException;
 
 public class Battery {
     private int currentEnergy;
