@@ -1,15 +1,14 @@
 package com.daniel.robotics.app;
 
-import com.daniel.robotics.domain.model.Android;
-import com.daniel.robotics.domain.model.Drone;
-import com.daniel.robotics.domain.model.Mech;
-import com.daniel.robotics.domain.model.Robot;
+import com.daniel.robotics.domain.model.*;
 import com.daniel.robotics.enums.RobotType;
 import com.daniel.robotics.service.RobotService;
 
+import java.util.DoubleSummaryStatistics;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,5 +36,21 @@ public class Main {
             RobotService.performRecharge(robot, 5);
             System.out.println("--------------------------------");
         }
+
+        String robotListStream = robotList.stream()
+                .map(Robot::getName)
+                .collect(Collectors.joining(", ", "", "."));
+        System.out.println(robotListStream);
+
+        DoubleSummaryStatistics batteryStats = robotList.stream()
+                .map(Robot::getBattery)
+                .collect(Collectors.summarizingDouble(Battery::getCurrentEnergy));
+        System.out.println(batteryStats);
+
+        String robotType = robotList.stream()
+                .map(Robot::getRobotType)
+                .map(RobotType::name)
+                .collect(Collectors.joining(", ", "", "."));
+        System.out.println(robotType);
     }
 }
